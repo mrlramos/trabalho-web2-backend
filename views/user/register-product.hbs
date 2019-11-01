@@ -1,0 +1,33 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
+<form action="/registered-product" method="POST">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control is-valid" id="title" name="title" placeholder="">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="description">Descrição</label>
+                <input type="text" class="form-control is-valid" id="description" name="description" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="imagePath">Imagem Produto</label>
+                <input type="text" class="form-control is-invalid" id="imagePath" name="imagePath"placeholder="">
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="price">Preço</label>
+                <input type="number" class="form-control is-invalid" id="price" name="price" placeholder=""
+                    aria-describedby="inputGroupPrepend3">            
+            </div>
+        </div>
+        <div class="form-row" style="padding-top:1%;">
+            <div class="col-md-12 mb-3">
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+            </div>
+        </div>
+    </form>

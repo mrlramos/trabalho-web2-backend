@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        {{# each conteudo}}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{this.imagePath}}" alt="" style="width: 220px;">
+                    <div class="caption">
+                        <h3>{{this.title}}</h3>
+                        <p class="descricao">{{this.description}}</p>
+                        <div>
+                            <div class="preco">R${{this.price}}</div>
+                                <form action="/pedidos/comprar" method="post">
+                                    <input type="hidden" name="data" value="{{this.id}}">
+                                    <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Adicionar ao carrinho</a>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                {{/ each}}
+            </div>
+        <p>{{message}}</p>
+    </div>
