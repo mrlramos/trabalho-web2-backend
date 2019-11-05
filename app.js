@@ -17,11 +17,7 @@ var userController = require('./controller/userController');
 
 var app = express();
 
-mongoose.connect('mongodb+srv://deploy:140596@cluster0-rxgkc.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-});
+mongoose.connect('localhost:27017');
 require('./config/passport');
 
 // view engine setup

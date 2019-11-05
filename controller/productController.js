@@ -101,9 +101,13 @@ router.post('/registered-product', isLoggedIn, function (req, res, next) {
         var transaction = new Product(produto);
         transaction.save();
             
-        return res.redirect('/');
+        return res.redirect('/success-product');
         }
     });
+
+router.get('/success-product', isLoggedIn, function (req, res, next) {
+    res.status(200).render('user/success-product')
+});
 
 module.exports = router;
 
