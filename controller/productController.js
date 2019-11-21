@@ -14,7 +14,8 @@ router.get('/', function (req, res, next) {
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
-        res.render('shop/index', {title: 'Loja do Marlin', products: productChunks, successMsg: successMsg, noMessages: !successMsg});
+        res.status(200).json(productChunks);
+        //res.render('shop/index', {title: 'Loja do Marlin', products: productChunks, successMsg: successMsg, noMessages: !successMsg});
     });
 });
 

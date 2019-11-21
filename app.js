@@ -11,6 +11,7 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
+var cors = require('cors');
 
 var controller = require('./controller/productController');
 var userController = require('./controller/userController');
@@ -20,6 +21,7 @@ var app = express();
 mongoose.connect('localhost:27017');
 require('./config/passport');
 
+app.use(cors());
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
