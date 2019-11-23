@@ -21,7 +21,38 @@ var app = express();
 mongoose.connect('localhost:27017');
 require('./config/passport');
 
-app.use(cors());
+let whitelist = [
+  "https://front-web2.herokuapp.com",
+  "https://front-web2.herokuapp.com/",
+  "http://front-web2.herokuapp.com/",
+  "http://front-web2.herokuapp.com",
+  "http://localhost:8080",
+  "http://127.0.0.1:8080",
+  "http://localhost:80",
+  "http://127.0.0.1:80",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  "http://localhost:30",
+  "http://127.0.0.1:3030",
+  "http://10.128.0.8",
+  "http://10.128.0.8:3000",
+  "https://34.69.165.76",
+  "http://34.69.165.76",
+  "http://34.69.165.76:3000"
+];
+var corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
