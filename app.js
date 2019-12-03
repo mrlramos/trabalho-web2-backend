@@ -21,6 +21,12 @@ var app = express();
 mongoose.connect('localhost:27017');
 require('./config/passport');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 let whitelist = [
   "https://front-web2.herokuapp.com",
   "https://front-web2.herokuapp.com/",
