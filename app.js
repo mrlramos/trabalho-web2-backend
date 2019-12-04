@@ -28,10 +28,10 @@ app.use(function(req, res, next) {
 });
 
 let whitelist = [
-  "https://front-web2.herokuapp.com",
-  "https://front-web2.herokuapp.com/",
-  "http://front-web2.herokuapp.com/",
-  "http://front-web2.herokuapp.com",
+  "https://loja-do-marlin.herokuapp.com",
+  "https://loja-do-marlin.herokuapp.com/",
+  "http://loja-do-marlin.herokuapp.com",
+  "http://loja-do-marlin.herokuapp.com/",
   "http://localhost:8080",
   "http://127.0.0.1:8080",
   "http://localhost:80",
