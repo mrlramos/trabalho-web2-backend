@@ -70,11 +70,11 @@ router.get('/seachproducts', async function (req, res, next) {
     res.status(200).render('shop/seachproducts', { conteudo : dado });   
 });
 
-router.get('/register-product', isLoggedIn, function (req, res, next) { 
+router.get('/register-product', function (req, res, next) { 
     res.status(200).render('user/register-product')    
 });
 
-router.post('/registered-product', isLoggedIn, function (req, res, next) { 
+router.post('/registered-product', function (req, res, next) { 
     var title = req.body.title;
     var description = req.body.description;
     var imageProduct = req.body.imagePath;
