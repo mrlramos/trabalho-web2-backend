@@ -98,13 +98,15 @@ router.post('/registered-product', function (req, res, next) {
     }
 
     if (erros.length > 0) {
-        res.status(200).render('user/register-product', {erros: erros})
+      return res.status(400).json(erros);
     } else {
         var produto = req.body;
+console.log(produto);
         var transaction = new Product(produto);
-        transaction.save();
+console.log(transaction);
+     transaction.save();
             
-        return res.redirect('/success-product');
+        return res.status(200).json("OK");
         }
     });
 
